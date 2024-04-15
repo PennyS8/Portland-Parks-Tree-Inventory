@@ -17,13 +17,13 @@ if os.path.exists(csv_file_path):
 else:
     print("Error: CSV file not found at", csv_file_path)
 
-size = trees['DBH']
-value = trees['Total_Annual_Benefits']
+size = [float(i) for i in trees['DBH']]
+value = [float(j) for j in trees['Total_Annual_Benefits']]
 
 plt.clf() # Clear the current plot so you don't plot over the previous graph
 plt.scatter(size, value, 0.75)
-plt.xlabel('DBH')
-plt.ylabel('Total_Annual_Benefits')
-plt.title('Total Annual Benefits by Diameter at Breast Height')
-plt.savefig('documents/TABxDBH_scatter_plot.png')
+plt.xlabel('Diameter at Breast Height')
+plt.ylabel('Total Annual Benefits')
+plt.title('Total Annual Benefits of Portland Parks Tree Inventory\nby Tree Diameter at Breast Height')
+plt.savefig('resources/TABxDBH_scatter_plot.png')
 plt.show() # NOTE: Opens an interactive graph
