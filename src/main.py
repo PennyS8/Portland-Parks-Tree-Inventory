@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import seaborn as sns
 import os
+
+import plot_boxplot as pbp
 
 # Get the current directory of the script
 parnet_dir = os.path.dirname(os.path.dirname(__file__))
@@ -34,35 +35,32 @@ value_median = np.median(value)
 value_range = np.ptp(value)
 value_std_dev = np.std(value)
 
-print('Descriptive Statistics for Diameter at Breast Height (DBH):')
+# Calculate the correlation coefficient between DBH & TAB
+corr_coef = np.corrcoef(size, value)[0, 1]
+dbh_tab_df = trees[['DBH', 'TreeHeight', 'CrownWidthNS', 'Pollution_Removal_oz', 'Stormwater_ft', 'Total_Annual_Benefits']]
+correlation_matrix = dbh_tab_df.corr()
+
+# Print DBH stats
+print('Descriptive Statistics for Diameter at Breast Height:')
 print(f'Mean: {size_mean:.2f}')
 print(f'Median: {size_median:.2f}')
 print(f'Range: {size_range:.2f}')
 print(f'Std-Dev: {size_std_dev:.2f}')
-print()
-print('Descriptive Statistics for Total Annual Benefits (TAB):')
+
+# Plotting DBH box-plot
+pbp.plot_boxplot(size, 'DBH')
+
+# Print TAB stats
+print('\nDescriptive Statistics for Total Annual Benefits:')
 print(f'Mean: {value_mean:.2f}')
 print(f'Median: {value_median:.2f}')
 print(f'Range: {value_range:.2f}')
 print(f'Std-Dev: {value_std_dev:.2f}')
 
-# Plotting DBH box-plot
-plt.figure(figsize=(6, 6))
-sns.boxplot(y=size, color='yellow')
-plt.title('Boxplot of Diameter at Breast Height (DBH)')
-plt.ylabel('Diameter at Breast Height')
-plt.savefig('resources/DBH_box_plot.png')
-# plt.show()
+# Plot TAB box-plot
+pbp.plot_boxplot(value, 'TAB')
 
-# Plotting TAB box-plot
-plt.figure(figsize=(6, 6))
-sns.boxplot(y=value, color='green')
-plt.title('Boxplot of Total Annual Benefits (TAB)')
-plt.ylabel('Total Annual Benefits')
-plt.savefig('resources/TAB_box_plot.png')
-# plt.show()
-
-# Plotting DBHxTAB
+# Plot TAB & DBH scatter plot
 plt.clf() # Clear the current plot so you don't plot over the previous graph
 plt.scatter(size, value, 0.75)
 plt.xlabel('Diameter at Breast Height')
@@ -70,3 +68,9 @@ plt.ylabel('Total Annual Benefits')
 plt.title('Total Annual Benefits of Portland Parks Tree Inventory\nby Tree Diameter at Breast Height')
 plt.savefig('resources/TABxDBH_scatter_plot.png')
 # plt.show()
+
+# Print the DBH & TAB correlation coefficient
+print(f'\nCorrelation coefficient between DBH & TAB: {corr_coef:.2f}')
+print(f'\nCorrelation matrix:\n{correlation_matrix}')
+
+
