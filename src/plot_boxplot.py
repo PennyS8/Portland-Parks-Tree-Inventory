@@ -16,7 +16,7 @@ def plot_boxplot(data, variable_name):
     sns.boxplot(y=data, color='skyblue')
     plt.ylabel(variable_name)
     plt.title(f'Boxplot of {variable_name}')
-    plt.savefig(f'resources/{variable_name}_box_plot.png')
+    plt.savefig(f'resources/visualizations/{variable_name}_box_plot.png')
     # plt.show()
 
     # Print out the values used to make the boxplot
