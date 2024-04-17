@@ -11,7 +11,7 @@ def plot_boxplot(data, variable_name):
         variable_name (str): Name of the variable
     '''
     # Create a boxplot
-    plt.clf() # Clear the current plot so you don't plot over the previous graph
+    # plt.clf() # Clear the current plot so you don't plot over the previous graph
     plt.figure(figsize=(6, 6))
     sns.boxplot(y=data, color='skyblue')
     plt.ylabel(variable_name)
