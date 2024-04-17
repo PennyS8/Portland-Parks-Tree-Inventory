@@ -67,7 +67,7 @@ plt.xlabel('Diameter at Breast Height')
 plt.ylabel('Total Annual Benefits')
 plt.title('Total Annual Benefits of Portland Parks Tree Inventory\nby Tree Diameter at Breast Height')
 plt.savefig('resources/visualizations/TABxDBH_scatter_plot.png')
-# plt.show()
+plt.show()
 
 # Print the DBH & TAB correlation coefficient
 print(f'\nCorrelation coefficient between DBH & TAB: {corr_coef:.2f}')
