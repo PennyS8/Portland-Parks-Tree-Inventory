@@ -46,7 +46,7 @@ def linear_regression(data):
     # plt.show()
 
     # Step 7: Describe Model Performance
-    print('Training set performance:')
+    print('\nTraining set performance:')
     print('R2:', r2_train)
     print('RMSE:', rmse_train)
     print('\nTesting set performance:')
