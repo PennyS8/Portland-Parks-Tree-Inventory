@@ -1,8 +1,8 @@
-import sys
 import pandas as pd
 import os
 import analysis as ana
 import linear_regression as linr
+import machine_learning as mach
 
 parnet_dir = os.path.dirname(os.path.dirname(__file__))
 csv_file_path = os.path.join(parnet_dir, 'resources', 'Parks_Tree_Inventory.csv')
@@ -28,3 +28,6 @@ ana.analyze_data(data)
 
 # Linear regression
 linr.linear_regression(data)
+
+# Machine learning
+mach.machine_learning_plot(data)
