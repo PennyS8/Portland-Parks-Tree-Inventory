@@ -43,7 +43,7 @@ def linear_regression(data):
     plt.ylabel('Total Annual Benefits')
     plt.title('Linear Regression Model Prediction')
     plt.savefig('resources/visualizations/linear_regression_prediction.png')
-    plt.show()
+    # plt.show()
 
     # Step 7: Describe Model Performance
     print('Training set performance:')

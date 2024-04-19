@@ -55,4 +55,4 @@ def analyze_data(data_dict):
     plt.ylabel('Total Annual Benefits')
     plt.title('Total Annual Benefits vs. Diameter at Breast Height')
     plt.savefig('resources/visualizations/TABxDBH_scatter_plot.png')
-    plt.show()
+    # plt.show()
